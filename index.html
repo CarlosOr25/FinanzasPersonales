@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzas Personales</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Seguimiento de Finanzas Personales</h1>
+    </header>
+    <main>
+        <!-- Pestañas -->
+        <div class="tabs">
+            <button class="tab-button active" data-tab="balance-tab">Balance</button>
+            <button class="tab-button" data-tab="transactions-tab">Transacciones</button>
+            <button class="tab-button" data-tab="estimated-expenses-tab">Gastos Estimados</button>
+        </div>
+
+        <!-- Contenido de Balance -->
+        <div id="balance-tab" class="tab-content active">
+            <section class="centered-box">
+                <h2>Balance Actual</h2>
+                <p>Balance: <span id="balance-value" class="balance-positive">0</span></p>
+            </section>
+        </div>
+
+        <!-- Contenido de Transacciones -->
+        <div id="transactions-tab" class="tab-content">
+            <section id="form-section">
+                <!-- Formulario para transacciones -->
+                <form id="transaction-form">
+                    <h2>Registrar Transacción</h2>
+                    <label for="type">Tipo:</label>
+                    <select id="type" name="type">
+                        <option value="ingreso">Ingreso</option>
+                        <option value="egreso">Egreso</option>
+                    </select>
+                    <label for="amount">Monto:</label>
+                    <input type="number" id="amount" name="amount" required>
+                    <label for="date">Fecha:</label>
+                    <input type="date" id="date" name="date" required>
+                    <label for="category">Categoría:</label>
+                    <select id="category" name="category">
+                        <option value="alimentacion">Alimentación</option>
+                        <option value="transporte">Transporte</option>
+                        <option value="ocio">Ocio</option>
+                        <!-- Más categorías -->
+                    </select>
+                    <button type="submit">Agregar</button>
+                </form>
+            </section>
+            <section id="transactions-section">
+                <h2>Transacciones</h2>
+                <div id="transactions-list" class="scrollable-list">
+                    <!-- Lista de transacciones -->
+                </div>
+            </section>
+            <section id="comparison-section">
+                <h2>Ingresos vs. Egresos</h2>
+                <div class="chart-container">
+                    <canvas id="comparison-chart"></canvas>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contenido de Gastos Estimados -->
+        <div id="estimated-expenses-tab" class="tab-content">
+            <section id="estimated-expenses-section">
+                <h2>Registrar Gastos Estimados</h2>
+                <form id="estimated-expenses-form">
+                    <label for="month">Mes:</label>
+                    <select id="month" name="month">
+                        <option value="enero">Enero</option>
+                        <option value="febrero">Febrero</option>
+                        <option value="marzo">Marzo</option>
+                        <option value="abril">Abril</option>
+                        <!-- Más meses -->
+                    </select>
+                    <label for="category-estimated">Categoría:</label>
+                    <select id="category-estimated" name="category-estimated">
+                        <option value="alimentacion">Alimentación</option>
+                        <option value="transporte">Transporte</option>
+                        <option value="ocio">Ocio</option>
+                        <!-- Más categorías -->
+                    </select>
+                    <label for="amount-estimated">Monto Estimado:</label>
+                    <input type="number" id="amount-estimated" name="amount-estimated" required>
+                    <button type="submit">Agregar</button>
+                </form>
+            </section>
+            <section id="estimated-expenses-display">
+                <h2>Gastos Estimados</h2>
+                <div id="estimated-expenses-list" class="scrollable-list">
+                    <!-- Lista de gastos estimados -->
+                </div>
+            </section>
+            <section id="category-comparison-section">
+                <h2>Comparación por Categoría</h2>
+                <div class="chart-container">
+                    <canvas id="category-comparison-chart"></canvas>
+                </div>
+            </section>
+            <section id="custom-category-section">
+                <h2>Agregar Categoría Personalizada</h2>
+                <form id="custom-category-form">
+                    <label for="custom-category">Nueva Categoría:</label>
+                    <input type="text" id="custom-category" name="custom-category" required>
+                    <button type="submit">Agregar Categoría</button>
+                </form>
+            </section>
+        </div>
+
+        <!-- Notificaciones y Modales -->
+        <div id="notification" class="notification">
+            <!-- Mensajes de notificación -->
+        </div>
+        <div id="delete-modal" class="modal">
+            <p>¿Estás seguro de que deseas eliminar esta transacción?</p>
+            <button id="confirm-delete">Confirmar</button>
+            <button id="cancel-delete">Cancelar</button>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

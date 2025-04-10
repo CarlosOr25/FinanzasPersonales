@@ -1,0 +1,376 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 2rem; /* Márgenes laterales más amplios */
+    padding: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header {
+    background-color: #121212; /* Mismo color que el fondo */
+    color: #bb86fc;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    padding: 1rem;
+}
+
+form {
+    background: #1f1f1f;
+    color: #e0e0e0;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    border: 1px solid #bb86fc;
+}
+
+form label {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+form input, form select {
+    width: calc(100% - 2rem); /* Ajustar el ancho para que todas las barras sean iguales */
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    background: #2c2c2c;
+    color: #e0e0e0;
+    border: 1px solid #bb86fc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Incluir padding y borde en el ancho total */
+}
+
+form button {
+    width: calc(100% - 2rem); /* Igualar el ancho de los botones al de las barras */
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #bb86fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #3700b3;
+}
+
+button {
+    background-color: #bb86fc;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+#search-bar {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    background: #2c2c2c;
+    color: #e0e0e0;
+    border: 1px solid #bb86fc;
+    border-radius: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1f1f1f;
+    color: #e0e0e0;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal button {
+    margin-top: 1rem;
+    background-color: #bb86fc;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal button:hover {
+    background-color: #3700b3;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    border: 1px solid #bb86fc;
+    background: #2c2c2c;
+}
+
+.transaction-item .buttons-container {
+    display: flex;
+    gap: 1rem; /* Espaciado entre botones */
+}
+
+.transaction-item .buttons-container button {
+    background-color: #bb86fc;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.transaction-item .buttons-container .edit-btn {
+    background-color: #2196f3; /* Azul */
+}
+
+.transaction-item .buttons-container .edit-btn:hover {
+    background-color: #0b79d0;
+}
+
+.transaction-item .buttons-container .delete-btn {
+    background-color: #f44336; /* Rojo */
+}
+
+.transaction-item .buttons-container .delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Estilo para palabras "ingreso" y "egreso" */
+.transaction-item .ingreso {
+    color: #4caf50; /* Verde */
+    font-weight: bold;
+}
+
+.transaction-item .egreso {
+    color: #f44336; /* Rojo */
+    font-weight: bold;
+}
+
+#comparison-chart, #category-comparison-chart {
+    width: 100%; /* Usar todo el ancho disponible */
+    max-height: 400px; /* Altura ajustada */
+    margin: 0 auto;
+}
+
+#comparison-chart {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #1f1f1f;
+    border-radius: 5px;
+    border: 1px solid #bb86fc;
+    text-align: center;
+}
+
+.chart-container {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #1f1f1f;
+    border-radius: 5px;
+    border: 1px solid #bb86fc;
+    text-align: center;
+}
+
+.chart-container canvas {
+    width: 100%;
+    max-height: 400px;
+    margin: 0 auto;
+}
+
+#estimated-expenses-section {
+    margin-top: 2rem;
+    background: #1f1f1f;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #bb86fc;
+}
+
+.estimated-expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    border: 1px solid #bb86fc;
+    background: #2c2c2c;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 1rem; /* Espaciado entre botones */
+}
+
+.buttons-container button {
+    background-color: #bb86fc;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons-container .edit-btn {
+    background-color: #2196f3; /* Azul */
+}
+
+.buttons-container .edit-btn:hover {
+    background-color: #0b79d0;
+}
+
+.buttons-container .delete-btn {
+    background-color: #f44336; /* Rojo */
+}
+
+.buttons-container .delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+#custom-category-section {
+    margin-top: 2rem;
+    background: #1f1f1f;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #bb86fc;
+}
+
+.notification {
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background: #3700b3;
+    color: #e0e0e0;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.notification.active {
+    display: block;
+}
+
+#filter-section {
+    margin-top: 2rem;
+    background: #1f1f1f;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #bb86fc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#filter-section h2 {
+    margin-bottom: 1rem;
+    color: #bb86fc;
+}
+
+#filter-section label {
+    display: block;
+    margin-top: 0.5rem;
+    color: #e0e0e0;
+}
+
+#filter-section select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    background: #2c2c2c;
+    color: #e0e0e0;
+    border: 1px solid #bb86fc;
+    border-radius: 5px;
+}
+
+/* Estilo para las pestañas */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: #1f1f1f;
+    padding: 0.5rem;
+    border-bottom: 1px solid #bb86fc;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.tab-button.active {
+    border-bottom: 2px solid #bb86fc;
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+    padding: 1rem;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Scrollable lists */
+.scrollable-list {
+    max-height: calc(3 * 4rem); /* Altura para mostrar 3 elementos */
+    overflow-y: auto;
+    border: 1px solid #bb86fc;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background: #2c2c2c;
+}
+
+/* Balance positivo y negativo */
+.balance-positive {
+    color: #4caf50; /* Verde */
+    font-weight: bold;
+}
+
+.balance-negative {
+    color: #f44336; /* Rojo */
+    font-weight: bold;
+}
+
+/* Balance centrado y estético */
+.centered-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #1f1f1f;
+    border: 1px solid #bb86fc;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.centered-box h2 {
+    margin-bottom: 1rem;
+    color: #bb86fc;
+}
+
+.centered-box p {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
